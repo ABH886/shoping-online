@@ -30,30 +30,30 @@ body {
    /* HE THEME (Default) */
    
 .he-theme {
-  --primary: #1E3A8A;
-  --primary-light: #3B82F6;
-  --primary-soft: #DBEAFE;
+  --primary: #3A86FF;
+  --primary-light: #A8C9FF;
+  --primary-soft: #E6F1FF;
 
-  --background: #F3F4F6;
+  --background: #F5FAFF;
   --surface: #FFFFFF;
-  --text: #111827;
-  --shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
-  --heading: #0F172A;
+  --text: #10243A;
+  --heading: #0A1E33;
+  --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 /* ===========================
    SHE THEME (Soft Purple)
 =========================== */
 .she-theme {
-  --primary: #9333EA;
-  --primary-light: #C084FC;
-  --primary-soft: #F3E8FF;
+   --primary: #B669FF;
+  --primary-light: #DDB6FF;
+  --primary-soft: #F5E9FF;
 
-  --background: #FDF4FF;
+  --background: #FCF7FF;
   --surface: #FFFFFF;
-  --text: #3B0764;
-  --heading: #5B21B6;
-  --shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+  --text: #3C1B5B;
+  --heading: #4A0F6E;
+  --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 
 }
 
@@ -458,8 +458,9 @@ footer {
   align-items: center;
   width: 100%;
   padding: 2%;
-  color: white;
+  color: rgb(19, 18, 18);
   background-color: var(--primary-light);
+  font-weight: bold;
 }
 
 .ftr-first {
@@ -487,5 +488,3 @@ footer {
     text-align: end;
 
   }
-
-}
