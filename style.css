@@ -68,8 +68,6 @@ nav {
   top: 0;
   z-index: 10;
   background-color: var(--primary-light);
-  
-
 }
 
 .nav_first {
@@ -77,8 +75,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin-bottom: -1%;
-
-
 }
 
 .nav_first ul {
@@ -94,6 +90,12 @@ nav {
 .nav_first ul li a {
   color: black;
   text-decoration: none;
+  font-weight: 500;
+}
+
+.nav_first ul li a:hover {
+  color: var(--primary);
+  transition: 0.3s;
 }
 
 .brandname img {
@@ -114,8 +116,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-content: space-between;
-  gap: 30%;
+  gap: 55px;
 }
 
 .icons ul li {
@@ -127,17 +128,15 @@ nav {
   padding: 1%;
   border: none;
   background-color: transparent;
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+  transition: 0.3s;
 }
 
-
-
-
-
-.icons ul {
-  display: flex;
-  gap: 55px;
+.icons button:hover {
+  color: var(--primary);
 }
-
 
 .menu-toggle {
   font-size: 28px;
@@ -146,19 +145,30 @@ nav {
   cursor: pointer;
   display: none;
   align-self: self-end;
+  color: black;
 }
 
 @media (max-width: 768px) {
   nav {
     display: flex;
     align-items: center;
-    height: 10%;
-    padding: 1% 2%;
-
+    justify-content: space-between;
+    height: auto;
+    padding: 15px 10px;
+    flex-wrap: wrap;
   }
 
   .menu-toggle {
     display: block;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+  }
+
+  .brandname img {
+    width: 80px;
+    height: 80px;
+    margin: 0;
   }
 
   /* nav responcev */
@@ -166,40 +176,70 @@ nav {
     position: absolute;
     top: 100%;
     right: 0;
-    width: 50%;
+    width: 100%;
     background: var(--primary-soft);
-    padding: 20px 0;
+    padding: 15px 0;
     display: none;
-    /* HIDDEN by default */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid;
+    border-top: 2px solid var(--primary);
   }
 
   .icons {
-    border: 2px solid;
     position: absolute;
-    top: 65px;
+    top: 100%;
     left: 0;
     width: 100%;
     background: var(--primary-soft);
-    padding: 20px 0;
+    padding: 15px 0;
     display: none;
-    /* HIDDEN by default */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-top: 2px solid var(--primary);
   }
 
   .nav_first ul {
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     align-items: center;
+    width: 100%;
+  }
+
+  .nav_first ul li a {
+    padding: 10px 15px;
+    display: block;
+    text-align: center;
+  }
+
+  .icons ul {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .icons ul li,
+  .icons ul a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .icons ul a {
+    display: flex;
+    justify-content: center;
+  }
+
+  .icons button {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
   }
 
   .nav_first.active {
     display: block;
   }
 
-
-
+  .icons.active {
+    display: block;
+  }
 }
 
 
