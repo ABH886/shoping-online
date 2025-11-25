@@ -977,10 +977,14 @@ const Most_selled = document.getElementById("Most-selled")
 
 
 
-function renderData(data) {
+function renderData(data, showAll = false) {
     Trending.innerHTML = "";
     
-    data.forEach(element => {
+    // Determine how many items to show based on screen size
+    const isMobile = window.innerWidth < 768;
+    const itemsToShow = showAll ? data.length : (isMobile ? 4 : data.length);
+    
+    data.slice(0, itemsToShow).forEach(element => {
 
     const card = document.createElement("div")
     card.classList.add('card')
@@ -1018,11 +1022,25 @@ function renderData(data) {
     Trending.appendChild(card)
 });
 
+    // Add "Show More" button if there are more items on mobile
+    if (!showAll && isMobile && data.length > 4) {
+        const showMoreBtn = document.createElement("button")
+        showMoreBtn.textContent = "Show More"
+        showMoreBtn.classList.add('show-more-btn')
+        showMoreBtn.addEventListener("click", () => {
+            renderData(data, true)
+        })
+        Trending.appendChild(showMoreBtn)
+    }
 }
-function renderData2(data) {
+function renderData2(data, showAll = false) {
     Most_selled.innerHTML = "";
     
-    data.forEach(element => {
+    // Determine how many items to show based on screen size
+    const isMobile = window.innerWidth < 768;
+    const itemsToShow = showAll ? data.length : (isMobile ? 4 : data.length);
+    
+    data.slice(0, itemsToShow).forEach(element => {
 
     const card = document.createElement("div")
     card.classList.add('card')
@@ -1060,6 +1078,16 @@ function renderData2(data) {
     Most_selled.appendChild(card)
 });
 
+    // Add "Show More" button if there are more items on mobile
+    if (!showAll && isMobile && data.length > 4) {
+        const showMoreBtn = document.createElement("button")
+        showMoreBtn.textContent = "Show More"
+        showMoreBtn.classList.add('show-more-btn')
+        showMoreBtn.addEventListener("click", () => {
+            renderData2(data, true)
+        })
+        Most_selled.appendChild(showMoreBtn)
+    }
 }
 
 btnHe.addEventListener("click",() => {
@@ -1099,3 +1127,4 @@ menuBtn.addEventListener("click", () => {
     menu.classList.toggle("active");
     menu2.classList.toggle("active");
 });
+
