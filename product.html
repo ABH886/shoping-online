@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-brand {
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .product-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 12px;
+      min-height: 45px;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 8px;
+    }
+
+    .old-price {
+      font-size: 16px;
+      color: #999;
+      text-decoration: line-through;
+      margin-bottom: 15px;
+    }
+
+    .product-description {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .btn-add-cart {
+      padding: 12px 20px;
+      background: #007bff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn-add-cart:hover {
+      background: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+      }
+
+      .product-image {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="page-title">Featured Products</h1>
+    
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/v/w/u/l-linen111-dimmy-original-imahfk9nkms65eh7.jpeg?q=70" alt="Men's Casual Shirt" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">DIMMY Fashion</p>
+          <h3 class="product-name">Men Regular Fit Casual Shirt</h3>
+          <p class="price">₹368</p>
+          <p class="old-price">₹1,999</p>
+          <p class="product-description">High-quality cotton casual shirt with comfortable fit</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/a/o/y/42-c-511-cvc-original-imah6h6e4wpez5ru.jpeg?q=70" alt="Men's Formal Shirt" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">CVC Fashion</p>
+          <h3 class="product-name">Men Regular Fit Formal Shirt</h3>
+          <p class="price">₹500</p>
+          <p class="old-price">₹3,199</p>
+          <p class="product-description">Professional formal shirt perfect for office wear</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/t/m/0/xl-yx-006-fitoda-fashion-original-imahex4eynhpcddj.jpeg?q=70" alt="Men's Printed Shirt" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Fitoda Fashion</p>
+          <h3 class="product-name">Men Slim Fit Printed Shirt</h3>
+          <p class="price">₹392</p>
+          <p class="old-price">₹1,499</p>
+          <p class="product-description">Stylish printed shirt with modern design</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/jacket/5/s/z/l-1-no-4785-88-funday-fashion-original-imagjq4fb6dkhtzh.jpeg?q=70" alt="Women's Casual Jacket" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Funday Fashion</p>
+          <h3 class="product-name">Women Solid Casual Jacket</h3>
+          <p class="price">₹498</p>
+          <p class="old-price">₹1,699</p>
+          <p class="product-description">Comfortable and stylish jacket for casual outings</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/ethnic-set/p/x/m/-original-imahfmseh7yg6wqz.jpeg?q=70" alt="Women's Kurta Set" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Dishwa Fashion</p>
+          <h3 class="product-name">Women Silk Blend Kurta Set</h3>
+          <p class="price">₹867</p>
+          <p class="old-price">₹2,999</p>
+          <p class="product-description">Traditional kurta set with elegant design</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?w=500&h=500&fit=crop" alt="Women's Blue Jeans" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Metronaut</p>
+          <h3 class="product-name">Women Boot-Leg Blue Jeans</h3>
+          <p class="price">₹422</p>
+          <p class="old-price">₹1,699</p>
+          <p class="product-description">Classic blue jeans with comfortable fit</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/3622622/pexels-photo-3622622.jpeg?w=500&h=500&fit=crop" alt="Women's Embroidered Kurta" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Fashion Mint</p>
+          <h3 class="product-name">Women Embroidered Cotton Kurta</h3>
+          <p class="price">₹423</p>
+          <p class="old-price">₹2,999</p>
+          <p class="product-description">Beautiful embroidered kurta perfect for all occasions</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?w=500&h=500&fit=crop" alt="Premium Sports Shoes" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">SportZone</p>
+          <h3 class="product-name">Premium Running Sports Shoes</h3>
+          <p class="price">₹1,299</p>
+          <p class="old-price">₹3,499</p>
+          <p class="product-description">High-quality sports shoes with comfort technology</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 9 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?w=500&h=500&fit=crop" alt="Women's Casual Top" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Urban Style</p>
+          <h3 class="product-name">Women's Casual Cotton Top</h3>
+          <p class="price">₹299</p>
+          <p class="old-price">₹799</p>
+          <p class="product-description">Comfortable and trendy casual top for everyday wear</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 10 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?w=500&h=500&fit=crop" alt="Men's Winter Jacket" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Winter Wear Co</p>
+          <h3 class="product-name">Men's Premium Winter Jacket</h3>
+          <p class="price">₹1,899</p>
+          <p class="old-price">₹4,999</p>
+          <p class="product-description">Warm and stylish winter jacket for cold weather</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 11 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?w=500&h=500&fit=crop" alt="Women's Summer Dress" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Summer Vibes</p>
+          <h3 class="product-name">Women's Floral Summer Dress</h3>
+          <p class="price">₹549</p>
+          <p class="old-price">₹1,499</p>
+          <p class="product-description">Light and breezy summer dress for hot weather</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 12 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/3622622/pexels-photo-3622622.jpeg?w=500&h=500&fit=crop" alt="Men's Casual T-Shirt" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Casual Wear</p>
+          <h3 class="product-name">Men's Graphic Casual T-Shirt</h3>
+          <p class="price">₹349</p>
+          <p class="old-price">₹999</p>
+          <p class="product-description">Stylish graphic printed t-shirt for casual look</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 13 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/3622620/pexels-photo-3622620.jpeg?w=500&h=500&fit=crop" alt="Women's Accessories Set" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Elegance Plus</p>
+          <h3 class="product-name">Women's Fashion Accessories Set</h3>
+          <p class="price">₹599</p>
+          <p class="old-price">₹1,999</p>
+          <p class="product-description">Complete accessories set including earrings and necklace</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 14 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?w=500&h=500&fit=crop" alt="Men's Formal Trousers" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">FormalFit</p>
+          <h3 class="product-name">Men's Formal Black Trousers</h3>
+          <p class="price">₹799</p>
+          <p class="old-price">₹2,299</p>
+          <p class="product-description">Professional formal trousers perfect for office</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 15 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/3532557/pexels-photo-3532557.jpeg?w=500&h=500&fit=crop" alt="Women's Handbag" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">StyleBags</p>
+          <h3 class="product-name">Women's Premium Leather Handbag</h3>
+          <p class="price">₹1,199</p>
+          <p class="old-price">₹3,499</p>
+          <p class="product-description">Elegant and spacious leather handbag for daily use</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 16 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.pexels.com/photos/3622622/pexels-photo-3622622.jpeg?w=500&h=500&fit=crop" alt="Men's Leather Belt" />
+        </div>
+        <div class="product-info">
+          <p class="product-brand">AccessoriesMax</p>
+          <h3 class="product-name">Men's Premium Leather Belt</h3>
+          <p class="price">₹449</p>
+          <p class="old-price">₹1,299</p>
+          <p class="product-description">Durable leather belt with stylish buckle design</p>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Add to Cart Functionality
+    document.querySelectorAll('.btn-add-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        const productName = this.parentElement.querySelector('.product-name').textContent;
+        alert(`${productName} added to cart!`);
+      });
+    });
+  </script>
+</body>
+</html>
