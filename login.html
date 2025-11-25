@@ -13,10 +13,8 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(50,50,50,0.8)),
-                  url('https://images.unsplash.com/photo-1523275335684-37898b6baf30') center/cover no-repeat;
+      background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(50,50,50,0.8)), url('https://images.unsplash.com/photo-1523275335684-37898b6baf30') center/cover no-repeat;
     }
-
     .container {
       width: 380px;
       backdrop-filter: blur(14px);
@@ -26,7 +24,6 @@
       box-shadow: 0 8px 25px rgba(0,0,0,0.4);
       border: 1px solid rgba(255,255,255,0.3);
     }
-
     .tab-buttons {
       display: flex;
       justify-content: space-between;
@@ -36,7 +33,6 @@
       border-radius: 12px;
       backdrop-filter: blur(8px);
     }
-
     .tab-buttons button {
       width: 50%;
       padding: 10px;
@@ -48,23 +44,19 @@
       color: #fff;
       transition: 0.3s ease;
     }
-
     .tab-buttons button.active {
       background: rgba(255,255,255,0.4);
       color: #000;
       font-weight: bold;
     }
-
     form {
       display: none;
       flex-direction: column;
       color: #fff;
     }
-
     form.active {
       display: flex;
     }
-
     input {
       padding: 12px;
       margin: 10px 0;
@@ -75,11 +67,9 @@
       font-size: 15px;
       outline: none;
     }
-
     input::placeholder {
       color: #eee;
     }
-
     button.submit-btn {
       padding: 12px;
       background: #000;
@@ -91,7 +81,6 @@
       margin-top: 10px;
       transition: 0.3s ease;
     }
-
     button.submit-btn:hover {
       background: #222;
     }
@@ -103,15 +92,11 @@
       <button id="loginTab" class="active">Login</button>
       <button id="signupTab">Signup</button>
     </div>
-
-    <!-- LOGIN FORM -->
     <form id="loginForm" class="active">
       <input type="email" placeholder="Email" required />
       <input type="password" placeholder="Password" required />
       <button class="submit-btn">Login</button>
     </form>
-
-    <!-- SIGNUP FORM -->
     <form id="signupForm">
       <input type="text" placeholder="Full Name" required />
       <input type="email" placeholder="Email" required />
@@ -121,6 +106,8 @@
   </div>
 
   <script>
+    emailjs.init("PUBLIC_KEY_YAHAN_PASTE_KARE");
+
     const loginTab = document.getElementById('loginTab');
     const signupTab = document.getElementById('signupTab');
     const loginForm = document.getElementById('loginForm');
@@ -138,6 +125,36 @@
       loginTab.classList.remove('active');
       signupForm.classList.add('active');
       loginForm.classList.remove('active');
+    });
+
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = loginForm.querySelector('input[type="email"]').value;
+
+      emailjs.send("SERVICE_ID", "TEMPLATE_ID", {
+      to_email: "tiwariabhimanyu907@gmail.com",
+        action: "Login",
+        user_email: email,
+        message: "Someone logged in to your website."
+      }).then(() => {
+        alert("Login Successful!");
+      });
+    });
+
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = signupForm.querySelector('input[type="text"]').value;
+      const email = signupForm.querySelector('input[type="email"]').value;
+
+      emailjs.send("SERVICE_ID", "TEMPLATE_ID", {
+      to_email: "tiwariabhimanyu907@gmail.com",
+        action: "Signup",
+        user_name: name,
+        user_email: email,
+        message: "A new user signed up!"
+      }).then(() => {
+        alert("Signup Successful!");
+      });
     });
   </script>
 </body>
