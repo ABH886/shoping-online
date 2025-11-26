@@ -328,12 +328,9 @@
     </div>
 
     <div class="cart-wrapper">
-      <!-- Cart Items Section -->
       <div class="cart-items-section">
         <h2>Cart Items (<span id="item-count">0</span>)</h2>
-        
         <div id="cart-items-container">
-          <!-- Sample Cart Items (will be populated by JavaScript) -->
           <div class="cart-item">
             <div class="item-image">
               <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/v/w/u/l-linen111-dimmy-original-imahfk9nkms65eh7.jpeg?q=70" alt="Men's Casual Shirt" />
@@ -455,25 +452,20 @@
         </div>
       </div>
 
-      <!-- Order Summary Section -->
       <div class="order-summary">
         <h2>Order Summary</h2>
-        
         <div class="summary-row">
           <span>Subtotal:</span>
           <span class="price">₹<span id="subtotal">1288</span></span>
         </div>
-        
         <div class="summary-row">
           <span>Shipping:</span>
           <span class="price">₹<span id="shipping">99</span></span>
         </div>
-        
         <div class="summary-row">
           <span>Tax:</span>
           <span class="price">₹<span id="tax">232</span></span>
         </div>
-        
         <div class="summary-row total">
           <span>Total:</span>
           <span class="price">₹<span id="total">1619</span></span>
@@ -494,14 +486,11 @@
   </div>
 
   <script>
-    // Increase quantity
     function increaseQty(btn) {
       const input = btn.previousElementSibling;
       input.value = parseInt(input.value) + 1;
       updateCart();
     }
-
-    // Decrease quantity
     function decreaseQty(btn) {
       const input = btn.nextElementSibling;
       if (parseInt(input.value) > 1) {
@@ -509,16 +498,12 @@
         updateCart();
       }
     }
-
-    // Remove item from cart
     function removeItem(btn) {
       if (confirm('Remove this item from cart?')) {
         btn.closest('.cart-item').remove();
         updateCart();
       }
     }
-
-    // Update cart totals
     function updateCart() {
       const items = document.querySelectorAll('.cart-item');
       let subtotal = 0;
@@ -540,12 +525,8 @@
       document.getElementById('tax').textContent = tax;
       document.getElementById('total').textContent = total;
       document.getElementById('shipping').textContent = shipping;
-
-      // Disable checkout if cart is empty
       document.querySelector('.checkout-btn').disabled = itemCount === 0;
     }
-
-    // Apply coupon
     function applyCoupon() {
       const couponCode = document.getElementById('coupon-input').value.toUpperCase();
       
@@ -559,18 +540,12 @@
         alert('Invalid coupon code');
       }
     }
-
-    // Checkout
     function checkout() {
       const itemCount = document.getElementById('item-count').textContent;
       if (itemCount > 0) {
         alert('Proceeding to checkout with ' + itemCount + ' items. Total: ₹' + document.getElementById('total').textContent);
-        // Redirect to checkout page
-        // window.location.href = 'checkout.html';
       }
     }
-
-    // Initialize cart on page load
     window.addEventListener('load', updateCart);
   </script>
 </body>

@@ -14,13 +14,10 @@ body {
   overflow-x: hidden;
 }
 
-
-
 :root {
   --primary: #0F766E;
   --primary-light: #14B8A6;
   --primary-soft: #99F6E4;
-
   --background: #F6F7F9;
   --surface: #FFFFFF;
   --text: #1E293B;
@@ -28,12 +25,10 @@ body {
   --heading: #0F172A;
 }
 
-   
 .he-theme {
   --primary: #3A86FF;
   --primary-light: #A8C9FF;
   --primary-soft: #E6F1FF;
-
   --background: #F5FAFF;
   --surface: #FFFFFF;
   --text: #10243A;
@@ -41,21 +36,16 @@ body {
   --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-
 .she-theme {
-   --primary: #B669FF;
+  --primary: #B669FF;
   --primary-light: #DDB6FF;
   --primary-soft: #F5E9FF;
-
   --background: #FCF7FF;
   --surface: #FFFFFF;
   --text: #3C1B5B;
   --heading: #4A0F6E;
   --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-
 }
-
-
 
 nav {
   position: sticky;
@@ -84,7 +74,6 @@ nav {
   width: 70%;
   gap: 90px;
   list-style: none;
-  text-decoration: none;
 }
 
 .nav_first ul li a {
@@ -115,7 +104,6 @@ nav {
 .icons ul {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 55px;
 }
 
@@ -144,13 +132,11 @@ nav {
   border: none;
   cursor: pointer;
   display: none;
-  align-self: self-end;
   color: black;
 }
 
 @media (max-width: 768px) {
   nav {
-    display: flex;
     align-items: center;
     justify-content: space-between;
     height: auto;
@@ -171,7 +157,6 @@ nav {
     margin: 0;
   }
 
-  /* nav responcev */
   .nav_first {
     position: absolute;
     top: 100%;
@@ -242,7 +227,6 @@ nav {
   }
 }
 
-
 main {
   display: flex;
   flex-direction: column;
@@ -262,11 +246,10 @@ main {
   height: 35vh;
   width: 100%;
   background-size: cover;
-  border-radius: var(--radius);
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: var(--shadow);
 }
-
 
 @media (min-width: 768px) {
   .top {
@@ -274,15 +257,10 @@ main {
   }
 }
 
-
-
 .main-img img {
-  display: flex;
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-
 }
 
 .main-img {
@@ -301,7 +279,6 @@ main {
   height: 100%;
   background: rgba(17, 23, 17, 0.301);
 }
-
 
 .text-overlay {
   position: absolute;
@@ -346,11 +323,9 @@ main {
   0% {
     transform: scale(0.8);
   }
-
   50% {
     transform: scale(1.08);
   }
-
   100% {
     transform: scale(1);
   }
@@ -386,9 +361,7 @@ main {
   gap: 20px;
   padding: 25px 5%;
   box-sizing: border-box;
-
 }
-
 
 #Most-selled {
   width: 100%;
@@ -399,27 +372,20 @@ main {
   box-sizing: border-box;
 }
 
-
-
 .card {
   background: var(--surface);
-  border-radius: var(--radius);
+  border-radius: 8px;
   box-shadow: var(--shadow);
   overflow: hidden;
   transition: 0.25s;
   cursor: pointer;
-
   border: 3px solid black;
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding: 15PX;
+  padding: 15px;
   height: 200px;
-  transition: 0.3s;
 }
-
-
-
 
 .card:hover {
   transform: translateY(-5px);
@@ -429,12 +395,6 @@ main {
   width: 100%;
   height: 200px;
   object-fit: cover;
-}
-
-
-.card-body {
-  padding: 15px;
-  text-align: center;
 }
 
 .title {
@@ -451,7 +411,7 @@ main {
 
 .card h1 {
   font-size: 12px;
-  font-weight: 20000;
+  font-weight: 600;
   color: var(--primary-light);
 }
 
@@ -460,30 +420,7 @@ main {
   color: var(--text-muted);
 }
 
-.Top button {
-  position: sticky;
-  left: 15px;
-  bottom: 25px;
-  background-color: var(--background);
-  padding: 10px;
-  border: none;
-  border-radius: 15px;
-  box-shadow: var(--shadow);
-
-
-}
-
-
-
-
-.Top {
-  color: var(--primary);
-  text-decoration: none;
-   background-color: var(--primary);
-}
-
 .show-more-btn {
-  grid-column: 1 / -1;
   padding: 12px 30px;
   background-color: var(--primary);
   color: white;
@@ -494,22 +431,13 @@ main {
   cursor: pointer;
   transition: 0.3s;
   margin-top: 20px;
-  margin-left: 80px;
+  width: fit-content;
 }
 
 .show-more-btn:hover {
   background-color: var(--primary-light);
   transform: scale(1.05);
 }
-
-
-
-
-
-
-
-
-
 
 footer {
   justify-content: space-between;
@@ -530,8 +458,6 @@ footer {
   padding: 2%;
 }
 
-
-
 @media (min-width: 768px) {
   .ftr-first {
     grid-template-columns: repeat(2, 1fr);
@@ -544,6 +470,47 @@ footer {
 
   .loction {
     text-align: end;
-
   }
 }
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 99;
+  transition: 0.3s;
+}
+
+.scroll-to-top-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top-btn.show {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+}
+
+

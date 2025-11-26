@@ -974,18 +974,21 @@ const btnShe = document.querySelector(".btnShe")
 
 const Trending = document.getElementById("Trending-pro")
 const Most_selled = document.getElementById("Most-selled")
+const all_product = document.getElementById("all-product")
 
+let globalShowAll = false;
+let currentTrendingData = [];
+let currentSelledData = [];
 
 
 function renderData(data, showAll = false) {
     Trending.innerHTML = "";
+    currentTrendingData = data;
     
-    // Determine how many items to show based on screen size
     const isMobile = window.innerWidth < 768;
     const itemsToShow = showAll ? data.length : (isMobile ? 4 : data.length);
     
     data.slice(0, itemsToShow).forEach(element => {
-
     const card = document.createElement("div")
     card.classList.add('card')
     
@@ -1008,40 +1011,26 @@ function renderData(data, showAll = false) {
     const description = document.createElement("p")
     description.className = "description"
     description.innerHTML = `this is ${element.title}`
-
-    // const link = document.createElement("a")
-    // link.textContent = element.link
     
     card.appendChild(img)
     card.appendChild(title)
     card.appendChild(brand)
     card.appendChild(price)
     card.appendChild(description)
-    // card.appendChild(link)
     
     Trending.appendChild(card)
 });
 
-    // Add "Show More" button if there are more items on mobile
-    if (!showAll && isMobile && data.length > 4) {
-        const showMoreBtn = document.createElement("button")
-        showMoreBtn.textContent = "Show More"
-        showMoreBtn.classList.add('show-more-btn')
-        showMoreBtn.addEventListener("click", () => {
-            renderData(data, true)
-        })
-        Trending.appendChild(showMoreBtn)
-    }
+    createToggleButton();
 }
 function renderData2(data, showAll = false) {
     Most_selled.innerHTML = "";
+    currentSelledData = data;
     
-    // Determine how many items to show based on screen size
     const isMobile = window.innerWidth < 768;
     const itemsToShow = showAll ? data.length : (isMobile ? 4 : data.length);
     
     data.slice(0, itemsToShow).forEach(element => {
-
     const card = document.createElement("div")
     card.classList.add('card')
     
@@ -1064,60 +1053,55 @@ function renderData2(data, showAll = false) {
     const description = document.createElement("p")
     description.className = "description"
     description.innerHTML = `this is ${element.title}`
-
-    // const link = document.createElement("a")
-    // link.textContent = element.link
     
     card.appendChild(img)
     card.appendChild(title)
     card.appendChild(brand)
     card.appendChild(price)
     card.appendChild(description)
-    // card.appendChild(link)
     
     Most_selled.appendChild(card)
 });
 
-    // Add "Show More" button if there are more items on mobile
-    if (!showAll && isMobile && data.length > 4) {
-        const showMoreBtn = document.createElement("button")
-        showMoreBtn.textContent = "Show More"
-        showMoreBtn.classList.add('show-more-btn')
-        showMoreBtn.addEventListener("click", () => {
-            renderData2(data, true)
+    createToggleButton();
+}
+
+function createToggleButton() {
+    const oldBtn = document.getElementById("unifiedToggleBtn");
+    if (oldBtn) oldBtn.remove();
+    
+    const isMobile = window.innerWidth < 768;
+    if (isMobile && (currentTrendingData.length > 4 || currentSelledData.length > 4)) {
+        const toggleBtn = document.createElement("button")
+        toggleBtn.id = "unifiedToggleBtn"
+        toggleBtn.textContent = globalShowAll ? "Show Less" : "Show More"
+        toggleBtn.classList.add('show-more-btn')
+        toggleBtn.addEventListener("click", () => {
+            globalShowAll = !globalShowAll;
+            renderData(currentTrendingData, globalShowAll);
+            renderData2(currentSelledData, globalShowAll);
         })
-        Most_selled.appendChild(showMoreBtn)
+        all_product.appendChild(toggleBtn)
     }
 }
 
-btnHe.addEventListener("click",() => {
+btnHe.addEventListener("click", () => {
     renderData(heData_trend);
     renderData2(heData_MS);
-})
-
-btnShe.addEventListener("click",() => {
-    renderData(sheData_trend);
-    renderData2(sheData_MS);
-})
-
-btnHe.addEventListener("click", () => {
     document.body.classList.remove("she-theme");
     document.body.classList.add("he-theme");
-});
+})
 
 btnShe.addEventListener("click", () => {
+    renderData(sheData_trend);
+    renderData2(sheData_MS);
     document.body.classList.remove("he-theme");
     document.body.classList.add("she-theme");
-});
-
+})
 
 renderData(heData_trend);
 renderData2(heData_MS);
 
-
-
-
-// menu toggle
 
 const menuBtn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
@@ -1127,4 +1111,22 @@ menuBtn.addEventListener("click", () => {
     menu.classList.toggle("active");
     menu2.classList.toggle("active");
 });
+
+const scrollToTopBtn = document.getElementById("scrollToTop");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add("show");
+    } else {
+        scrollToTopBtn.classList.remove("show");
+    }
+});
+
+scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
 
